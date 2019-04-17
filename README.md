@@ -12,12 +12,14 @@ Software stack is as follows:
                                 |-------------------------|
                                 |   Board Support Package |
                               |------------------------------|
-                              |   Open Network Linux OS      |
+                          | Open Network Linux OS / Ubuntu 16.4.4 |
                         |------------------------------------------|
                         | white-box hardware (with ONIE installed) |
                         |------------------------------------------|
 
 ## How to Access
+Please access and use the switch with Open Network Linux installed as follows (The one with Ubuntu is under configuration for advanced purposes).
+
 ```
 ssh user_name@aslan.wings.cs.wisc.edu # enter the lab machine with public address
 ssh root@10.0.1.232 # password is onl
@@ -26,7 +28,6 @@ ssh root@10.0.1.232 # password is onl
 ## To do
 * The switch's IP is obtained via DHCP. Use hostname to access the switch.
 * Change the default password for safety consideration.
-* Currently only 1 out of 2 switches works. The other switch installed with Ubuntu 16.4.4 has driver issues and can not start P4 functions. Will contact Stordis technique support soon.
 
 ## P4 function cases
 * See `basic_switching.md`
