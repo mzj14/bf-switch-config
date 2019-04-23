@@ -19,18 +19,18 @@ sde # enter the directory of barefoot SDE
 ### sde cmd from now on ####
 bfshell> ucli
 bf-sde> pm                          # enter port manager module
-bf-sde.pm> port-add 30/- 10G NONE   # split into 4 10Gbps port to fit in host NIC rate
-bf-sde.pm> port-add 31/- 10G NONE
-bf-sde.pm> an-set 30/- 2            # turn off auto-negotiate mechanism of the switch port
-bf-sde.pm> an-set 31/- 2
-bf-sde.pm> port-enb 30/-            # enable switch port
-bf-sde.pm> port-enb 31/-
+bf-sde.pm> port-add 20/- 10G NONE   # split into 4 10Gbps port to fit in host NIC rate
+bf-sde.pm> port-add 30/- 10G NONE
+bf-sde.pm> an-set 20/- 2            # turn off auto-negotiate mechanism of the switch port
+bf-sde.pm> an-set 30/- 2
+bf-sde.pm> port-enb 20/-            # enable switch port
+bf-sde.pm> port-enb 30/-
 bf-sde.pm> show
 -----+----+---+----+------+----+---+---+---+----------------+----------------+-
 PORT |MAC |D_P|P/PT|SPEED |FEC |RDY|ADM|OPR|FRAMES RX       |FRAMES TX       |E
 -----+----+---+----+------+----+---+---+---+----------------+----------------+-
-30/0 |27/0|156|3/28| 10G  |NONE|YES|ENB|UP |               5|               0|  
-31/0 |24/0|132|3/ 4| 10G  |NONE|YES|ENB|UP |               4|               0|
+20/0 | 4/0| 24|1/24| 10G  |NONE|YES|ENB|UP |        14762426|          111022|   
+30/0 |27/0|156|3/28| 10G  |NONE|YES|ENB|UP |          111722|        14762354|
 ```
 
 Note that there should be 2 ports with `RDY=YES`, `ADM=ENB` and `OPR=UP` like the above.
@@ -43,8 +43,8 @@ bf-sde.pm> ..
 bf-sde> exit
 bfshell> pd-basic-switching device 0
 pd-basic-switching:0> pd init
-pd-basic-switching:0> pd forward add_entry set_egr ethernet_dstAddr 0x90e2ba5e72c9 action_egress_spec 156
-pd-basic-switching:0> pd forward add_entry set_egr ethernet_dstAddr 0x001b2173e84d action_egress_spec 132
+pd-basic-switching:0> pd forward add_entry set_egr ethernet_dstAddr 0x90e2ba5e72c9 action_egress_spec 24
+pd-basic-switching:0> pd forward add_entry set_egr ethernet_dstAddr 0x001b2173e84d action_egress_spec 156
 ```
 
 Tip: Always remember to type "?" or tab for auto completion.
