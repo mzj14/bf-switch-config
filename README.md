@@ -18,16 +18,21 @@ Software stack is as follows:
                         |------------------------------------------|
 
 ## How to Access
-Please access and use the switch with Open Network Linux installed as follows (The one with Ubuntu is under configuration for advanced purposes).
+Access and use the switch with Open Network Linux installed as follows:
 
 ```
 ssh user_name@aslan.wings.cs.wisc.edu # enter the lab machine with public address
 ssh root@10.0.1.232 # password is onl
+cd /root/bf-sde-8.7.0
 ```
 
-## To do
-* The switch's IP is obtained via DHCP. Use hostname to access the switch.
-* Change the default password for safety consideration.
+Access and use the switch with Ubuntu installed as follows:
+
+```
+ssh user_name@aslan.wings.cs.wisc.edu # enter the lab machine with public address
+ssh p4@10.0.1.241 # password is hello2tofino
+cd /data/bf-sde-8.7.0
+```
 
 ## P4 function cases
 * See `basic_switching.md`
